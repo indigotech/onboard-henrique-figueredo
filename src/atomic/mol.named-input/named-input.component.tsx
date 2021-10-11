@@ -4,22 +4,23 @@ import { AtomInput } from '../atm.input/input.component';
 import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 
-import { MoleculeNamedInputContainer } from './named-input.component.style';
+import { StyleMoleculeNamedInputContainer } from './named-input.component.style';
 
 interface Props {
+  text: string;
   value: string;
   onInputChange(value: string): void;
   secureTextEntry?: boolean;
 }
 
-export const MoleculeNamedInput: React.FC<Props> = ({ children, value, onInputChange, secureTextEntry }) => {
+export const MoleculeNamedInput: React.FC<Props> = ({ text, value, onInputChange, secureTextEntry }) => {
   return (
-    <MoleculeNamedInputContainer>
-      <AtomLabel color="secondary">{children}</AtomLabel>
+    <StyleMoleculeNamedInputContainer>
+      <AtomLabel text={text} color="secondary" />
 
       <AtomSeparator size="sm" />
 
       <AtomInput value={value} onInputChange={onInputChange} secureTextEntry={secureTextEntry} />
-    </MoleculeNamedInputContainer>
+    </StyleMoleculeNamedInputContainer>
   );
 };

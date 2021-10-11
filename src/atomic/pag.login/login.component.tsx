@@ -44,17 +44,21 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula');
   return (
     <StylePageLoginContainer>
       <AtomSeparator size={'xlg'} />
-      <AtomTitle>Bem vindo(a) à Taqtitle!</AtomTitle>
-      <AtomLabel color="error">{error}</AtomLabel>
+
+      <AtomTitle title="Bem vindo(a) à Taqtitle!" />
+
+      <AtomLabel text={error} color="error" />
+
       <AtomSeparator size={'xlg'} />
-      <MoleculeNamedInput value={email} onInputChange={changeEmailValue}>
-        Email
-      </MoleculeNamedInput>
+
+      <MoleculeNamedInput text="Email" value={email} onInputChange={changeEmailValue} />
+
       <AtomSeparator size={'xlg'} />
-      <MoleculeNamedInput secureTextEntry value={password} onInputChange={changePasswordValue}>
-        Password
-      </MoleculeNamedInput>
+
+      <MoleculeNamedInput text="Password" secureTextEntry value={password} onInputChange={changePasswordValue} />
+
       <AtomSeparator size={'xlg'} />
+
       <MoleculeButton title="Entrar" color="callToAction" onPress={validadeForm} />
     </StylePageLoginContainer>
   );

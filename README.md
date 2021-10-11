@@ -22,6 +22,12 @@ This project is the onboarding of Henrique Figueiredo
 yarn
 ```
 
+or
+
+```sh
+npm install
+```
+
 2. Make sure your Android device is connected
 
 ```sh
@@ -32,6 +38,12 @@ adb devices
 
 ```sh
 yarn start
+```
+
+or
+
+```sh
+npm run start
 ```
 
 4. Start the Android

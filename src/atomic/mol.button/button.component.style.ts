@@ -4,7 +4,7 @@ interface StyleCallToCationButtonProps {
   color: string;
 }
 
-export const StyleCallToActionButton = styled.TouchableOpacity<StyleCallToCationButtonProps>`
+export const StyleButton = styled.TouchableOpacity<StyleCallToCationButtonProps>`
   background-color: ${props => props.color};
   border-radius: ${props => props.theme.border.radius.md};
   overflow: hidden;
@@ -12,7 +12,7 @@ export const StyleCallToActionButton = styled.TouchableOpacity<StyleCallToCation
   align-items: center;
 `;
 
-export const StyleCallToActionButtonText = styled.Text`
+export const StyleButtonText = styled.Text`
   font-weight: bold;
   color: ${props => props.theme.font.colors.callToAction};
 `;

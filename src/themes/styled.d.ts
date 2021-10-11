@@ -20,7 +20,7 @@ declare module 'styled-components' {
       sm: string;
       md: string;
       lg: string;
-      '2-xl': string;
+      xlg: string;
     };
     border: {
       size: {

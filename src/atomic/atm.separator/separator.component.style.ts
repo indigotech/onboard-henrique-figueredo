@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 
-type Size = 'sm' | 'md' | 'lg' | '2-xl';
+type Size = 'sm' | 'md' | 'lg' | 'xlg';
 
 interface ContainerProps {
   size: Size;
@@ -16,8 +16,8 @@ const sizes = {
   lg: css`
     ${props => props.theme.spacing.lg}
   `,
-  '2-xl': css`
-    ${props => props.theme.spacing['2-xl']}
+  xlg: css`
+    ${props => props.theme.spacing.xlg}
   `,
 };
 

@@ -19,7 +19,7 @@ export const light: DefaultTheme = {
     sm: '6px',
     md: '12px',
     lg: '24px',
-    '2-xl': '32px',
+    xlg: '32px',
   },
   border: {
     size: { sm: '12px' },

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSeparator } from './separator.component.style';
 
-type Size = 'sm' | 'md' | 'lg' | '2-xl';
+type Size = 'sm' | 'md' | 'lg' | 'xlg';
 interface Props {
   size: Size;
 }

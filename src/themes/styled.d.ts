@@ -13,6 +13,7 @@ declare module 'styled-components' {
         primary: string;
         secondary: string;
         callToAction: string;
+        error: string;
       };
     };
     spacing: {

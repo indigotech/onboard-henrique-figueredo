@@ -12,6 +12,7 @@ export const light: DefaultTheme = {
       primary: '#c1c1c1',
       secondary: '#000',
       callToAction: '#fff',
+      error: '#F44336',
     },
   },
   spacing: {

@@ -26,11 +26,7 @@ export const light: DefaultTheme = {
     radius: { sm: '4px', md: '12px' },
   },
   colors: {
-    grey: {
-      600: '#2C2C2C',
-    },
-    purple: {
-      400: '#6658e9',
-    },
+    primary: '#2C2C2C',
+    callToAction: '#6658e9',
   },
 };

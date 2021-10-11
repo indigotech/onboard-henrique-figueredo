@@ -31,6 +31,6 @@ declare module 'styled-components' {
         md: string;
       };
     };
-    colors: { grey: { 600: string }; purple: { 400: string } };
+    colors: { primary: string; callToAction: string };
   }
 }

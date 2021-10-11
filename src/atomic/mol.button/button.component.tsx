@@ -4,7 +4,7 @@ import { StyleButton, StyleButtonText } from './button.component.style';
 
 interface Props {
   title: string;
-  color: string;
+  color: 'primary' | 'callToAction';
   onPress(): void;
 }
 

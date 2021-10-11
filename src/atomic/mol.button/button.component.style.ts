@@ -1,11 +1,20 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 interface StyleCallToCationButtonProps {
-  color: string;
+  color: 'primary' | 'callToAction';
 }
 
+const colors = {
+  primary: css`
+    ${props => props.theme.colors.primary}
+  `,
+  callToAction: css`
+    ${props => props.theme.colors.callToAction}
+  `,
+};
+
 export const StyleButton = styled.TouchableOpacity<StyleCallToCationButtonProps>`
-  background-color: ${props => props.color};
+  background-color: ${props => colors[props.color]};
   border-radius: ${props => props.theme.border.radius.md};
   overflow: hidden;
   padding: ${props => props.theme.spacing.md};

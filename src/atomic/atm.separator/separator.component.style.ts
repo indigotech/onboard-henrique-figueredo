@@ -17,7 +17,7 @@ const sizes = {
     ${props => props.theme.spacing.lg}
   `,
   '2-xl': css`
-    ${props => props.theme.spacing.sm}
+    ${props => props.theme.spacing['2-xl']}
   `,
 };
 

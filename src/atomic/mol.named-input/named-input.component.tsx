@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useTheme } from 'styled-components';
-
 import { AtomInput } from '../atm.input/input.component';
 import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
@@ -15,11 +13,12 @@ interface Props {
 }
 
 export const MoleculeNamedInput: React.FC<Props> = ({ children, value, onInputChange, secureTextEntry }) => {
-  const { spacing } = useTheme();
   return (
     <MoleculeNamedInputContainer>
       <AtomLabel color="secondary">{children}</AtomLabel>
-      <AtomSeparator size={spacing.sm} />
+
+      <AtomSeparator size="sm" />
+
       <AtomInput value={value} onInputChange={onInputChange} secureTextEntry={secureTextEntry} />
     </MoleculeNamedInputContainer>
   );

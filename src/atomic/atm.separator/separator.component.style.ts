@@ -1,9 +1,26 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
+
+type Size = 'sm' | 'md' | 'lg' | '2-xl';
 
 interface ContainerProps {
-  size: string;
+  size: Size;
 }
 
-export const StyleSeparatorContainer = styled.View<ContainerProps>`
-  height: ${(props) => props.size};
+const sizes = {
+  sm: css`
+    ${props => props.theme.spacing.sm}
+  `,
+  md: css`
+    ${props => props.theme.spacing.md}
+  `,
+  lg: css`
+    ${props => props.theme.spacing.lg}
+  `,
+  '2-xl': css`
+    ${props => props.theme.spacing.sm}
+  `,
+};
+
+export const StyleSeparator = styled.View<ContainerProps>`
+  height: ${props => sizes[props.size]};
 `;

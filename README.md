@@ -22,12 +22,6 @@ This project is the onboarding of Henrique Figueiredo
 npm install
 ```
 
-or
-
-```sh
-npm install
-```
-
 2. Make sure your Android device is connected
 
 ```sh

@@ -34,6 +34,12 @@ adb devices
 npm run start
 ```
 
+or
+
+```sh
+npm run start
+```
+
 4. Start the Android
 
 ```sh

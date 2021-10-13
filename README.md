@@ -19,12 +19,6 @@ This project is the onboarding of Henrique Figueiredo
 1. Install the dependencies
 
 ```sh
-yarn
-```
-
-or
-
-```sh
 npm install
 ```
 
@@ -37,17 +31,11 @@ adb devices
 3. Start the metro
 
 ```sh
-yarn start
-```
-
-or
-
-```sh
 npm run start
 ```
 
 4. Start the Android
 
 ```sh
-yarn android
+npm run android
 ```

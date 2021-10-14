@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components/native';
 
-type Size = 'sm' | 'md' | 'lg' | 'xlg';
+import { SeparatorSize } from './separator.component';
 
 interface ContainerProps {
-  size: Size;
+  size: SeparatorSize;
 }
 
 const sizes = {

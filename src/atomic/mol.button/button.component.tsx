@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { StyleCallToActionButton, StyleCallToActionButtonText } from './button.component.style';
+import { StyleButton, StyleButtonText } from './button.component.style';
 
 interface Props {
   title: string;
-  color: string;
+  color: 'primary' | 'callToAction';
   onPress(): void;
 }
 
-export const MoleculeCallToActionButton: React.FC<Props> = ({ title, color, onPress }) => {
+export const MoleculeButton: React.FC<Props> = ({ title, color, onPress }) => {
   return (
-    <StyleCallToActionButton color={color} onPress={onPress}>
-      <StyleCallToActionButtonText>{title}</StyleCallToActionButtonText>
-    </StyleCallToActionButton>
+    <StyleButton color={color} onPress={onPress}>
+      <StyleButtonText>{title}</StyleButtonText>
+    </StyleButton>
   );
 };

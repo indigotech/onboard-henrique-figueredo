@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { StyleSeparatorContainer } from './separator.component.style';
+import { StyleSeparator } from './separator.component.style';
 
+type Size = 'sm' | 'md' | 'lg' | 'xlg';
 interface Props {
-  size: string;
+  size: Size;
 }
 
 export const AtomSeparator: React.FC<Props> = ({ size }) => {
-  return <StyleSeparatorContainer size={size} />;
+  return <StyleSeparator size={size} />;
 };

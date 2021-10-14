@@ -13,13 +13,14 @@ declare module 'styled-components' {
         primary: string;
         secondary: string;
         callToAction: string;
+        error: string;
       };
     };
     spacing: {
       sm: string;
       md: string;
       lg: string;
-      '2-xl': string;
+      xlg: string;
     };
     border: {
       size: {
@@ -30,6 +31,6 @@ declare module 'styled-components' {
         md: string;
       };
     };
-    colors: { grey: { 600: string }; purple: { 400: string } };
+    colors: { primary: string; callToAction: string };
   }
 }

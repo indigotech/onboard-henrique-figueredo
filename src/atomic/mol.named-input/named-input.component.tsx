@@ -1,20 +1,26 @@
 import React from 'react';
 
-import { useTheme } from 'styled-components';
-
 import { AtomInput } from '../atm.input/input.component';
+import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
-import { AtomSubText } from '../atm.subtext/subtext.component';
 
-import { MoleculeNamedInputContainer } from './named-input.component.style';
+import { StyleMoleculeNamedInputContainer } from './named-input.component.style';
 
-export const MoleculeNamedInput: React.FC = ({ children }) => {
-  const { spacing } = useTheme();
+interface Props {
+  text: string;
+  value: string;
+  onInputChange(value: string): void;
+  secureTextEntry?: boolean;
+}
+
+export const MoleculeNamedInput: React.FC<Props> = ({ text, value, onInputChange, secureTextEntry }) => {
   return (
-    <MoleculeNamedInputContainer>
-      <AtomSubText>{children}</AtomSubText>
-      <AtomSeparator size={spacing.sm} />
-      <AtomInput />
-    </MoleculeNamedInputContainer>
+    <StyleMoleculeNamedInputContainer>
+      <AtomLabel text={text} color="secondary" />
+
+      <AtomSeparator size="sm" />
+
+      <AtomInput value={value} onInputChange={onInputChange} secureTextEntry={secureTextEntry} />
+    </StyleMoleculeNamedInputContainer>
   );
 };

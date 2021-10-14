@@ -12,24 +12,21 @@ export const light: DefaultTheme = {
       primary: '#c1c1c1',
       secondary: '#000',
       callToAction: '#fff',
+      error: '#F44336',
     },
   },
   spacing: {
     sm: '6px',
     md: '12px',
     lg: '24px',
-    '2-xl': '32px',
+    xlg: '32px',
   },
   border: {
     size: { sm: '12px' },
     radius: { sm: '4px', md: '12px' },
   },
   colors: {
-    grey: {
-      600: '#2C2C2C',
-    },
-    purple: {
-      400: '#6658e9',
-    },
+    primary: '#2C2C2C',
+    callToAction: '#6658e9',
   },
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
@@ -8,45 +8,29 @@ import { MoleculeNamedInput } from '../mol.named-input/named-input.component';
 
 import { StylePageLoginContainer } from './login.component.style';
 
-export const PageLogin: React.FC = () => {
-  const [error, setError] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+interface Props {
+  email: string;
+  password: string;
+  changeEmailValue(newEmail: string): void;
+  changePasswordValue(newPassword: string): void;
+  submitLogin(): void;
+  message: { text: string; error: boolean };
+}
 
-  const changeEmailValue = (value: string) => {
-    setEmail(value);
-  };
-
-  const changePasswordValue = (value: string) => {
-    setPassword(value);
-  };
-
-  const validadeForm = () => {
-    if (!email || !password) {
-      return setError('Email e senha não deve ficar vazio');
-    }
-
-    const regexEmail = /^[\w-.]+@([\w-]+\.com)$/g;
-    const isValidEmail = regexEmail.test(email);
-    if (!isValidEmail) {
-      return setError('O email não é válido');
-    }
-
-    const regexPassword = /^(?=.*[0-9])(?=.*[A-Z]).{7,}$/;
-    const isValidPassword = regexPassword.test(password);
-
-    if (!isValidPassword) {
-      return setError('A senha não é valida. \n\
-Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula');
-    }
-  };
-
+export const PageLogin: React.FC<Props> = ({
+  email,
+  password,
+  changeEmailValue,
+  changePasswordValue,
+  submitLogin,
+  message,
+}) => {
   return (
     <StylePageLoginContainer>
       <AtomSeparator size={'xlg'} />
       <AtomTitle title="Bem vindo(a) à Taqtitle!" />
 
-      <AtomLabel text={error} color="error" />
+      <AtomLabel text={message.text} color={message.error ? 'error' : 'callToAction'} />
       <AtomSeparator size={'xlg'} />
 
       <MoleculeNamedInput text="Email" value={email} onInputChange={changeEmailValue} />
@@ -55,7 +39,7 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula');
       <MoleculeNamedInput text="Password" secureTextEntry value={password} onInputChange={changePasswordValue} />
       <AtomSeparator size={'xlg'} />
 
-      <MoleculeButton title="Entrar" color="callToAction" onPress={validadeForm} />
+      <MoleculeButton title="Entrar" color="callToAction" onPress={submitLogin} />
     </StylePageLoginContainer>
   );
 };

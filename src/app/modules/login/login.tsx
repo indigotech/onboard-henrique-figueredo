@@ -16,7 +16,7 @@ export const ScreenLogin: React.FC = () => {
   const [password, setPassword] = useState('');
   const linkTo = useLinkTo();
 
-  const [runLogin] = useMutation<LoginData>(Mutation.Login, {
+  const [runLogin, { loading }] = useMutation<LoginData>(Mutation.Login, {
     variables: { data: { email, password } },
     onCompleted: async data => {
       const token = data.login.token;
@@ -74,6 +74,7 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
       changePasswordValue={changePasswordValue}
       submitLogin={submitLogin}
       message={message}
+      loading={loading}
     />
   );
 };

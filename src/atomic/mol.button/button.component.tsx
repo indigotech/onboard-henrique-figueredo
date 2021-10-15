@@ -13,7 +13,7 @@ interface Props {
 
 export const MoleculeButton: React.FC<Props> = ({ loading, title, color, onPress }) => {
   return (
-    <StyleButton color={color} onPress={onPress}>
+    <StyleButton disabled={loading} color={color} onPress={onPress}>
       {loading && <AtomLoading />}
       <StyleButtonText>{title}</StyleButtonText>
     </StyleButton>

@@ -14,6 +14,8 @@ const colors = {
 };
 
 export const StyleButton = styled.TouchableOpacity<StyleCallToCationButtonProps>`
+  flex-direction: row;
+  justify-content: center;
   background-color: ${props => colors[props.color]};
   border-radius: ${props => props.theme.border.radius.md};
   overflow: hidden;

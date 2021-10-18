@@ -15,6 +15,7 @@ interface Props {
   changePasswordValue(newPassword: string): void;
   submitLogin(): void;
   message: { text: string; error: boolean };
+  loading: boolean;
 }
 
 export const PageLogin: React.FC<Props> = ({
@@ -24,6 +25,7 @@ export const PageLogin: React.FC<Props> = ({
   changePasswordValue,
   submitLogin,
   message,
+  loading,
 }) => {
   return (
     <StylePageLoginContainer>
@@ -39,7 +41,7 @@ export const PageLogin: React.FC<Props> = ({
       <MoleculeNamedInput text="Password" secureTextEntry value={password} onInputChange={changePasswordValue} />
       <AtomSeparator size={'xlg'} />
 
-      <MoleculeButton title="Entrar" color="callToAction" onPress={submitLogin} />
+      <MoleculeButton loading={loading} title="Entrar" color="callToAction" onPress={submitLogin} />
     </StylePageLoginContainer>
   );
 };

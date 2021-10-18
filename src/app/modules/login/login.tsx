@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLinkTo } from '@react-navigation/native';
 
 import { PageLogin } from '../../../atomic/pag.login/login.component';
+import { GlobalStyle } from '../../../themes/global';
 import { Mutation } from '../../data/graphql/graphql.schemas';
 interface LoginData {
   login: { token: string };
@@ -26,7 +27,7 @@ export const ScreenLogin: React.FC = () => {
       await AsyncStorage.setItem('@token', token);
       setMessage({ text: 'Logado com sucesso!', error: false });
 
-      linkTo('/dummy');
+      linkTo('/user-list');
     },
     onError: error => setMessage({ text: error.message, error: true }),
   });
@@ -67,14 +68,16 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
   };
 
   return (
-    <PageLogin
-      email={email}
-      password={password}
-      changeEmailValue={changeEmailValue}
-      changePasswordValue={changePasswordValue}
-      submitLogin={submitLogin}
-      message={message}
-      loading={loading}
-    />
+    <GlobalStyle>
+      <PageLogin
+        email={email}
+        password={password}
+        changeEmailValue={changeEmailValue}
+        changePasswordValue={changePasswordValue}
+        submitLogin={submitLogin}
+        message={message}
+        loading={loading}
+      />
+    </GlobalStyle>
   );
 };

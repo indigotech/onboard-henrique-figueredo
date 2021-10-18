@@ -6,8 +6,6 @@ import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';
 import { MoleculeNamedInput } from '../mol.named-input/named-input.component';
 
-import { StylePageLoginContainer } from './login.component.style';
-
 interface Props {
   email: string;
   password: string;
@@ -28,7 +26,7 @@ export const PageLogin: React.FC<Props> = ({
   loading,
 }) => {
   return (
-    <StylePageLoginContainer>
+    <>
       <AtomSeparator size={'xlg'} />
       <AtomTitle title="Bem vindo(a) à Taqtitle!" />
 
@@ -42,6 +40,6 @@ export const PageLogin: React.FC<Props> = ({
       <AtomSeparator size={'xlg'} />
 
       <MoleculeButton loading={loading} title="Entrar" color="callToAction" onPress={submitLogin} />
-    </StylePageLoginContainer>
+    </>
   );
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
-export const StylePageLoginContainer = styled.View`
+export const GlobalStyle = styled.View`
   padding: ${props => props.theme.spacing.lg};
+  background-color: transparent;
 `;

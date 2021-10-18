@@ -1,3 +1,5 @@
 import styled from 'styled-components/native';
 
-export const StyleLoadingContainer = styled.View``;
+export const StyleLoading = styled.ActivityIndicator`
+  padding: 0 ${props => props.theme.spacing.sm};
+`;

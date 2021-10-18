@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native';
 import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 import { AtomTitle } from '../atm.title/title.component';
+import { MoleculeButton } from '../mol.button/button.component';
 
 import { StylePageUserListContainer, StyleUserCard } from './user-list.component.style';
 
@@ -17,9 +18,10 @@ interface User {
 interface Props {
   users: User[];
   message: { text: string; error: boolean };
+  nextPage(): void;
 }
 
-export const PageUserList: React.FC<Props> = ({ users, message }) => {
+export const PageUserList: React.FC<Props> = ({ users, message, nextPage }) => {
   return (
     <StylePageUserListContainer>
       <AtomTitle title="Lista de usuários" />
@@ -28,11 +30,15 @@ export const PageUserList: React.FC<Props> = ({ users, message }) => {
       <AtomLabel text={message.text} color={message.error ? 'error' : 'primary'} />
       <ScrollView>
         {users.map(user => (
-          <StyleUserCard key={user.id}>
+          <StyleUserCard key={+user.id}>
             <AtomLabel text={`Nome: ${user.name}`} color="secondary" />
             <AtomLabel text={`Email: ${user.email}`} color="secondary" />
           </StyleUserCard>
         ))}
+
+        <AtomSeparator size="sm" />
+        <MoleculeButton title="Next Page" color="primary" onPress={nextPage} />
+        <AtomSeparator size="xlg" />
       </ScrollView>
     </StylePageUserListContainer>
   );

@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 
 import { PageUserList } from '../../../atomic/pag.user-list/user-list.component';
 import { GlobalStyle } from '../../../themes/global';
 import { Query } from '../../data/graphql/graphql.schemas';
+
+interface PaginateVariable {
+  data: {
+    limit: number;
+    offset: number;
+  };
+}
 
 interface User {
   name: string;
@@ -19,22 +26,31 @@ interface UsersData {
 
 export const ScreenUserList: React.FC = () => {
   const [message, setMessage] = useState({ text: '', error: false });
+  const [pageCount, setPageCount] = useState(0);
   const [users, setUsers] = useState<User[]>([]);
-  const { error, loading, data } = useQuery<UsersData>(Query.GetUsers, {});
+  const [getUsers] = useLazyQuery<UsersData, PaginateVariable>(Query.GetUsers, {
+    variables: { data: { offset: 10 * pageCount, limit: 10 } },
+    onCompleted: data => {
+      console.log(data.users.nodes);
+      setUsers(oldUsers => [...oldUsers, ...data.users.nodes]);
+    },
+    onError: error => {
+      setMessage({ text: error.message, error: true });
+    },
+  });
 
   useEffect(() => {
-    if (error) {
-      return setMessage({ text: error.message, error: true });
-    }
+    console.log(pageCount);
+    getUsers();
+  }, [pageCount, getUsers]);
 
-    if (!loading && data) {
-      setUsers(data.users.nodes);
-    }
-  }, [loading, data, error]);
+  const nextPage = useCallback(() => {
+    setPageCount(oldPage => oldPage + 1);
+  }, []);
 
   return (
     <GlobalStyle>
-      <PageUserList users={users} message={message} />
+      <PageUserList users={users} message={message} nextPage={nextPage} />
     </GlobalStyle>
   );
 };

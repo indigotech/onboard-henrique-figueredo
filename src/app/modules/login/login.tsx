@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useLinkTo } from '@react-navigation/native';
 
 import { PageLogin } from '../../../atomic/pag.login/login.component';
 import { Mutation } from '../../data/graphql/graphql.schemas';
-
 interface LoginData {
   login: { token: string };
 }
@@ -14,6 +14,7 @@ export const ScreenLogin: React.FC = () => {
   const [message, setMessage] = useState({ text: '', error: false });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const linkTo = useLinkTo();
 
   const [runLogin] = useMutation<LoginData>(Mutation.Login, {
     variables: { data: { email, password } },
@@ -24,6 +25,8 @@ export const ScreenLogin: React.FC = () => {
       }
       await AsyncStorage.setItem('@token', token);
       setMessage({ text: 'Logado com sucesso!', error: false });
+
+      linkTo('/dummy');
     },
     onError: error => setMessage({ text: error.message, error: true }),
   });

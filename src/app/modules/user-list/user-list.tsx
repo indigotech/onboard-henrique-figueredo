@@ -31,7 +31,6 @@ export const ScreenUserList: React.FC = () => {
   const [getUsers] = useLazyQuery<UsersData, PaginateVariable>(Query.GetUsers, {
     variables: { data: { offset: 10 * pageCount, limit: 10 } },
     onCompleted: data => {
-      console.log(data.users.nodes);
       setUsers(oldUsers => [...oldUsers, ...data.users.nodes]);
     },
     onError: error => {
@@ -40,7 +39,6 @@ export const ScreenUserList: React.FC = () => {
   });
 
   useEffect(() => {
-    console.log(pageCount);
     getUsers();
   }, [pageCount, getUsers]);
 

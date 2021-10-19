@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLinkTo } from '@react-navigation/native';
 
 import { PageLogin } from '../../../atomic/pag.login/login.component';
-import { GlobalStyle } from '../../../themes/global';
+import { PageWrapper } from '../../../themes/global';
 import { Mutation } from '../../data/graphql/graphql.schemas';
 interface LoginData {
   login: { token: string };
@@ -68,7 +68,7 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
   };
 
   return (
-    <GlobalStyle>
+    <PageWrapper>
       <PageLogin
         email={email}
         password={password}
@@ -78,6 +78,6 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
         message={message}
         loading={loading}
       />
-    </GlobalStyle>
+    </PageWrapper>
   );
 };

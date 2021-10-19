@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { PageUserList } from '../../../atomic/pag.user-list/user-list.component';
-import { GlobalStyle } from '../../../themes/global';
+import { PageWrapper } from '../../../themes/global';
 import { Query } from '../../data/graphql/graphql.schemas';
 
 interface PaginateVariable {
@@ -44,8 +44,8 @@ export const ScreenUserList: React.FC = () => {
   }, [refetch]);
 
   return (
-    <GlobalStyle>
+    <PageWrapper>
       <PageUserList users={users} message={message} nextPage={nextPage} />
-    </GlobalStyle>
+    </PageWrapper>
   );
 };

@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
-import { useLazyQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 import { PageUserList } from '../../../atomic/pag.user-list/user-list.component';
 import { GlobalStyle } from '../../../themes/global';
@@ -28,7 +28,7 @@ export const ScreenUserList: React.FC = () => {
   const [message, setMessage] = useState({ text: '', error: false });
   const [pageCount, setPageCount] = useState(0);
   const [users, setUsers] = useState<User[]>([]);
-  const [getUsers] = useLazyQuery<UsersData, PaginateVariable>(Query.GetUsers, {
+  const { refetch } = useQuery<UsersData, PaginateVariable>(Query.GetUsers, {
     variables: { data: { offset: 10 * pageCount, limit: 10 } },
     onCompleted: data => {
       setUsers(oldUsers => [...oldUsers, ...data.users.nodes]);
@@ -38,13 +38,10 @@ export const ScreenUserList: React.FC = () => {
     },
   });
 
-  useEffect(() => {
-    getUsers();
-  }, [pageCount, getUsers]);
-
   const nextPage = useCallback(() => {
     setPageCount(oldPage => oldPage + 1);
-  }, []);
+    refetch();
+  }, [refetch]);
 
   return (
     <GlobalStyle>

@@ -58,13 +58,18 @@ export const PageAddUser: React.FC<Props> = ({
         <AtomLabel text={message.text} color={message.error ? 'error' : 'callToAction'} />
 
         <AtomSeparator size={'md'} />
-        <MoleculeNamedInput text="Nome" value={name} onInputChange={changeName} />
+        <MoleculeNamedInput text="Nome" placeholder="Ex: João" value={name} onInputChange={changeName} />
 
         <AtomSeparator size={'xlg'} />
-        <MoleculeNamedInput text="Email" value={email} onInputChange={changeEmail} />
+        <MoleculeNamedInput
+          text="Email"
+          placeholder="Ex: eu@taqtile.com.br"
+          value={email}
+          onInputChange={changeEmail}
+        />
 
         <AtomSeparator size={'xlg'} />
-        <MoleculeNamedInput text="Telefone" value={phone} onInputChange={changePhone} />
+        <MoleculeNamedInput placeholder="Ex: 11988884444" text="Telefone" value={phone} onInputChange={changePhone} />
 
         <AtomSeparator size={'xlg'} />
         <MoleculeButton title="Data de nascimento" color="primary" onPress={() => setIsDateOpen(true)} />
@@ -84,7 +89,7 @@ export const PageAddUser: React.FC<Props> = ({
         />
 
         <AtomSeparator size={'xlg'} />
-        <MoleculeNamedInput text="Password" secureTextEntry value={password} onInputChange={changePassword} />
+        <MoleculeNamedInput text="Senha" secureTextEntry value={password} onInputChange={changePassword} />
 
         <AtomSeparator size={'xlg'} />
         <Picker selectedValue={role} onValueChange={changeRole}>

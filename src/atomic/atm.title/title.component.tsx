@@ -2,10 +2,10 @@ import React from 'react';
 
 import { StyleTitle } from './title.component.style';
 
-interface Props {
+interface AtomTitleProps {
   title: string;
 }
 
-export const AtomTitle: React.FC<Props> = ({ title }) => {
+export const AtomTitle: React.FC<AtomTitleProps> = ({ title }) => {
   return <StyleTitle>{title}</StyleTitle>;
 };

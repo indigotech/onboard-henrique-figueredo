@@ -15,13 +15,13 @@ interface User {
   id: string;
 }
 
-interface Props {
+interface PageUserListProps {
   users: User[];
   message: { text: string; error: boolean };
   nextPage(): void;
 }
 
-export const PageUserList: React.FC<Props> = ({ users, message, nextPage }) => {
+export const PageUserList: React.FC<PageUserListProps> = ({ users, message, nextPage }) => {
   return (
     <StylePageUserListContainer>
       <AtomTitle title="Lista de usuários" />

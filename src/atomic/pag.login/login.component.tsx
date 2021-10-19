@@ -6,7 +6,7 @@ import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';
 import { MoleculeNamedInput } from '../mol.named-input/named-input.component';
 
-interface Props {
+interface PageLoginProps {
   email: string;
   password: string;
   changeEmailValue(newEmail: string): void;
@@ -16,7 +16,7 @@ interface Props {
   loading: boolean;
 }
 
-export const PageLogin: React.FC<Props> = ({
+export const PageLogin: React.FC<PageLoginProps> = ({
   email,
   password,
   changeEmailValue,

@@ -3,10 +3,10 @@ import React from 'react';
 import { StyleSeparator } from './separator.component.style';
 
 export type SeparatorSize = 'sm' | 'md' | 'lg' | 'xlg';
-interface Props {
+interface AtomSeparatorProps {
   size: SeparatorSize;
 }
 
-export const AtomSeparator: React.FC<Props> = ({ size }) => {
+export const AtomSeparator: React.FC<AtomSeparatorProps> = ({ size }) => {
   return <StyleSeparator size={size} />;
 };

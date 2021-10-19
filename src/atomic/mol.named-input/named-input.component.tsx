@@ -6,14 +6,19 @@ import { AtomSeparator } from '../atm.separator/separator.component';
 
 import { StyleMoleculeNamedInputContainer } from './named-input.component.style';
 
-interface Props {
+interface MoleculeNamedInputProps {
   text: string;
   value: string;
   onInputChange(value: string): void;
   secureTextEntry?: boolean;
 }
 
-export const MoleculeNamedInput: React.FC<Props> = ({ text, value, onInputChange, secureTextEntry }) => {
+export const MoleculeNamedInput: React.FC<MoleculeNamedInputProps> = ({
+  text,
+  value,
+  onInputChange,
+  secureTextEntry,
+}) => {
   return (
     <StyleMoleculeNamedInputContainer>
       <AtomLabel text={text} color="secondary" />

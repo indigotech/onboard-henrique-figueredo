@@ -7,6 +7,7 @@ import { useLinkTo } from '@react-navigation/native';
 import { PageLogin } from '../../../atomic/pag.login/login.component';
 import { PageWrapper } from '../../../themes/global';
 import { Mutation } from '../../data/graphql/graphql.schemas';
+import { Regex } from '../../utils/regex';
 interface LoginData {
   login: { token: string };
 }
@@ -45,14 +46,12 @@ export const ScreenLogin: React.FC = () => {
       return setMessage({ text: 'Email e senha não deve ficar vazio', error: true });
     }
 
-    const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
-    const isValidEmail = regexEmail.test(email);
+    const isValidEmail = Regex.email.test(email);
     if (!isValidEmail) {
       return setMessage({ text: 'O email não é válido', error: true });
     }
 
-    const regexPassword = /^(?=.*[0-9])(?=.*[A-Z]).{7,}$/;
-    const isValidPassword = regexPassword.test(password);
+    const isValidPassword = Regex.password.test(password);
 
     if (!isValidPassword) {
       return setMessage({

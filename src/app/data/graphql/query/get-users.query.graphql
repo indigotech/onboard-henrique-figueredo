@@ -1,0 +1,9 @@
+query ($data: PageInputType) {
+  users(pageInfo: $data) {
+    nodes {
+      name
+      email
+      id
+    }
+  }
+}

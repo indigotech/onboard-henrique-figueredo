@@ -4,11 +4,11 @@ import { StyleText } from './label.component.style';
 
 type Color = 'primary' | 'secondary' | 'callToAction' | 'error';
 
-interface Props {
+interface AtomLabelProps {
   text: string;
   color: Color;
 }
 
-export const AtomLabel: React.FC<Props> = ({ text, color }) => {
+export const AtomLabel: React.FC<AtomLabelProps> = ({ text, color }) => {
   return <StyleText color={color}>{text}</StyleText>;
 };

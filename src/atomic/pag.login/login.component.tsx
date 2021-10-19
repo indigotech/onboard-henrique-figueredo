@@ -6,9 +6,7 @@ import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';
 import { MoleculeNamedInput } from '../mol.named-input/named-input.component';
 
-import { StylePageLoginContainer } from './login.component.style';
-
-interface Props {
+interface PageLoginProps {
   email: string;
   password: string;
   changeEmailValue(newEmail: string): void;
@@ -18,7 +16,7 @@ interface Props {
   loading: boolean;
 }
 
-export const PageLogin: React.FC<Props> = ({
+export const PageLogin: React.FC<PageLoginProps> = ({
   email,
   password,
   changeEmailValue,
@@ -28,7 +26,7 @@ export const PageLogin: React.FC<Props> = ({
   loading,
 }) => {
   return (
-    <StylePageLoginContainer>
+    <>
       <AtomSeparator size={'xlg'} />
       <AtomTitle title="Bem vindo(a) à Taqtitle!" />
 
@@ -42,6 +40,6 @@ export const PageLogin: React.FC<Props> = ({
       <AtomSeparator size={'xlg'} />
 
       <MoleculeButton loading={loading} title="Entrar" color="callToAction" onPress={submitLogin} />
-    </StylePageLoginContainer>
+    </>
   );
 };

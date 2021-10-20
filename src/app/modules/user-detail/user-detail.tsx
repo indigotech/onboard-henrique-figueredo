@@ -19,6 +19,6 @@ export const ScreenUserDetail: React.FC = () => {
   const { data, loading, error } = useQuery<UserData, GetUserVariables>(Query.GetUser, {
     variables: { id: params?.userId },
   });
-  console.log(data);
+
   return <PageWrapper>{loading ? <AtomLoading /> : <PageUserDetail user={data?.user} error={error} />}</PageWrapper>;
 };

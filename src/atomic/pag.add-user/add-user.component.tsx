@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { Picker } from '@react-native-picker/picker';
 import { ScrollView } from 'react-native';
@@ -24,7 +24,7 @@ interface Props {
   changeBirthDate(newBirthDate: Date): void;
   changePassword(newPassword: string): void;
   changeRole(newRole: string): void;
-  submitUser(): void;
+  submitUser(): Promise<void>;
   message: { text: string; error: boolean };
   loading: boolean;
 }
@@ -47,9 +47,17 @@ export const PageAddUser: React.FC<Props> = ({
   loading,
 }) => {
   const [isDateOpen, setIsDateOpen] = useState(false);
+  const scrollRef = useRef<ScrollView | null>(null);
+
+  const scrollToTop = () => {
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  };
 
   return (
-    <ScrollView>
+    <ScrollView ref={scrollRef}>
       <PageWrapper>
         <AtomSeparator size={'xlg'} />
         <AtomTitle title="Adicionar usuário" />
@@ -58,7 +66,7 @@ export const PageAddUser: React.FC<Props> = ({
         <AtomLabel text={message.text} color={message.error ? 'error' : 'callToAction'} />
 
         <AtomSeparator size={'md'} />
-        <MoleculeNamedInput text="Nome" placeholder="Ex: João" value={name} onInputChange={changeName} />
+        <MoleculeNamedInput text="Nome" placeholder="Ex: Joao" value={name} onInputChange={changeName} />
 
         <AtomSeparator size={'xlg'} />
         <MoleculeNamedInput
@@ -98,7 +106,12 @@ export const PageAddUser: React.FC<Props> = ({
         </Picker>
 
         <AtomSeparator size={'xlg'} />
-        <MoleculeButton loading={loading} title="Adicionar" color="callToAction" onPress={submitUser} />
+        <MoleculeButton
+          loading={loading}
+          title="Adicionar"
+          color="callToAction"
+          onPress={() => submitUser().then(() => scrollToTop())}
+        />
       </PageWrapper>
     </ScrollView>
   );

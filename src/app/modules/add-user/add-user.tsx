@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 
+import { useMutation } from '@apollo/client';
+import { format } from 'date-fns';
+
 import { PageAddUser } from '../../../atomic/pag.add-user/add-user.component';
+import { Mutation } from '../../data/graphql/graphql.schemas';
 import { Regex } from '../../utils/regex';
+
+interface AddUserVariables {
+  data: { name: string; email: string; phone: string; birthDate: string; password: string; role: string };
+}
+interface AddUserData {
+  createUser: {
+    email: string;
+  };
+}
 
 export const ScreenAddUser = () => {
   const [message, setMessage] = useState({ text: '', error: false });
@@ -11,6 +24,12 @@ export const ScreenAddUser = () => {
   const [birthDate, setBirthDate] = useState(new Date());
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('user');
+  const [addUser, { loading }] = useMutation<AddUserData, AddUserVariables>(Mutation.AddUser, {
+    onCompleted: async data => {
+      setMessage({ text: `Usuário ${data.createUser.email} criado com sucesso`, error: false });
+    },
+    onError: error => setMessage({ text: error.message, error: true }),
+  });
 
   const changeName = (newName: string) => {
     setName(newName);
@@ -68,9 +87,12 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
     return true;
   };
 
-  const submitUser = () => {
+  const submitUser = async () => {
     const validate = validateForm();
     if (validate) {
+      await addUser({
+        variables: { data: { name, email, phone, birthDate: format(birthDate, 'yyyy-MM-dd'), password, role } },
+      });
     }
   };
 
@@ -90,7 +112,7 @@ Certifique-se de que tem pelo menos 1 letra maiúscula e uma minúscula',
       changeRole={changeRole}
       submitUser={submitUser}
       message={message}
-      loading={false}
+      loading={loading}
     />
   );
 };

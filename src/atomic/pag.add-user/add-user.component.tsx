@@ -97,7 +97,7 @@ export const PageAddUser: React.FC<Props> = ({
         />
 
         <AtomSeparator size={'xlg'} />
-        <MoleculeNamedInput text="Senha" secureTextEntry value={password} onInputChange={changePassword} />
+        <MoleculeNamedInput placeholder='Ex: #S3nh4' text="Senha" secureTextEntry value={password} onInputChange={changePassword} />
 
         <AtomSeparator size={'xlg'} />
         <Picker selectedValue={role} onValueChange={changeRole}>

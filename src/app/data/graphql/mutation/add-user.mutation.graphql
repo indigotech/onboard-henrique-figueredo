@@ -1,0 +1,5 @@
+mutation ($data: UserInputType!) {
+  createUser(data: $data) {
+    email
+  }
+}

@@ -7,8 +7,9 @@ import { PlusFab } from '../atm.plus-fab/plus-fab.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';
+import { UserCard } from '../mol.user-card/user-card.component';
 
-import { StylePageUserListContainer, StyleUserCard } from './user-list.component.style';
+import { StylePageUserListContainer } from './user-list.component.style';
 
 interface User {
   name: string;
@@ -31,10 +32,10 @@ export const PageUserList: React.FC<PageUserListProps> = ({ users, message, next
       <AtomLabel text={message.text} color={message.error ? 'error' : 'primary'} />
       <ScrollView>
         {users.map(user => (
-          <StyleUserCard key={+user.id}>
+          <UserCard key={+user.id}>
             <AtomLabel text={`Nome: ${user.name}`} color="secondary" />
             <AtomLabel text={`Email: ${user.email}`} color="secondary" />
-          </StyleUserCard>
+          </UserCard>
         ))}
 
         <AtomSeparator size="sm" />

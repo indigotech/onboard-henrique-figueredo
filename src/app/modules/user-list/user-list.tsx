@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 
 import { PageUserList } from '../../../atomic/pag.user-list/user-list.component';
 import { PageWrapper } from '../../../themes/global';
+import { User } from '../../../type/user';
 import { Query } from '../../data/graphql/graphql.schemas';
 
 interface PaginateVariable {
@@ -13,21 +14,18 @@ interface PaginateVariable {
   };
 }
 
-interface User {
-  name: string;
-  email: string;
-  id: string;
-}
+type MinUser = Pick<User, 'name' | 'email' | 'id'>;
+
 interface UsersData {
   users: {
-    nodes: User[];
+    nodes: MinUser[];
   };
 }
 
 export const ScreenUserList: React.FC = () => {
   const [message, setMessage] = useState({ text: '', error: false });
   const [pageCount, setPageCount] = useState(0);
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<MinUser[]>([]);
   const { refetch } = useQuery<UsersData, PaginateVariable>(Query.GetUsers, {
     variables: { data: { offset: 10 * pageCount, limit: 10 } },
     onCompleted: data => {

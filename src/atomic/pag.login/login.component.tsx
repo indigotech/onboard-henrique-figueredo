@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { AtomCaption } from '../atm.caption/caption.component';
-import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';

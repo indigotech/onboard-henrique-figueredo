@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { useRoute } from '@react-navigation/native';
 
 import { AtomLoading } from '../../../atomic/atm.loading/loading.component';
-import { PageUserDetail } from '../../../atomic/pag.user-detail/user-list.component';
+import { PageUserDetail } from '../../../atomic/pag.user-detail/user-detail.component';
 import { PageWrapper } from '../../../themes/global';
 import { RouteUserDetailProps } from '../../core/navigation/screen-props';
 import { Query } from '../../data/graphql/graphql.schemas';

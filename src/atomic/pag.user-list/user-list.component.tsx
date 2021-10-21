@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableOpacity } from 'react-native';
 
 import { NavigationUserDetailProps } from '../../app/core/navigation/screen-props';
+import { User } from '../../type/user';
 import { AtomLabel } from '../atm.label/label.component';
 import { PlusFab } from '../atm.plus-fab/plus-fab.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
@@ -13,14 +14,10 @@ import { UserCard } from '../mol.user-card/user-card.component';
 
 import { StylePageUserListContainer } from './user-list.component.style';
 
-interface User {
-  name: string;
-  email: string;
-  id: string;
-}
+type MinUser = Pick<User, 'name' | 'email' | 'id'>;
 
 interface PageUserListProps {
-  users: User[];
+  users: MinUser[];
   message: { text: string; error: boolean };
   nextPage(): void;
 }

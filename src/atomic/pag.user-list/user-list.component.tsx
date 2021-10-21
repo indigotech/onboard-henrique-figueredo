@@ -5,6 +5,7 @@ import { ScrollView, TouchableOpacity } from 'react-native';
 
 import { NavigationUserDetailProps } from '../../app/core/navigation/screen-props';
 import { User } from '../../type/user';
+import { AtomCaption } from '../atm.caption/caption.component';
 import { AtomLabel } from '../atm.label/label.component';
 import { PlusFab } from '../atm.plus-fab/plus-fab.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
@@ -27,22 +28,23 @@ export const PageUserList: React.FC<PageUserListProps> = ({ users, message, next
   return (
     <StylePageUserListContainer>
       <AtomTitle title="Lista de usuários" />
-      <AtomSeparator size="sm" />
 
-      <AtomLabel text={message.text} color={message.error ? 'error' : 'primary'} />
+      <AtomCaption text={message.text} color={message.error ? 'error' : 'secondary'} />
+      <AtomSeparator size="md" />
+
       <ScrollView>
         {users.map(user => (
           <TouchableOpacity onPress={() => navigate('user-detail', { userId: +user.id })}>
             <UserCard key={+user.id}>
               <AtomLabel text={`Nome: ${user.name}`} color="secondary" />
               <AtomLabel text={`Email: ${user.email}`} color="secondary" />
+              <AtomSeparator size="md" />
             </UserCard>
           </TouchableOpacity>
         ))}
 
         <AtomSeparator size="sm" />
         <MoleculeButton title="Next Page" color="primary" onPress={nextPage} />
-        <AtomSeparator size="xlg" />
       </ScrollView>
       <PlusFab />
     </StylePageUserListContainer>

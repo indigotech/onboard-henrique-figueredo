@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSeparator } from './separator.component.style';
 
-export type SeparatorSize = 'sm' | 'md' | 'lg' | 'xlg';
+export type SeparatorSize = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg';
 interface AtomSeparatorProps {
   size: SeparatorSize;
 }

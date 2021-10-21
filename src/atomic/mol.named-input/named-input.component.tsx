@@ -24,7 +24,6 @@ export const MoleculeNamedInput: React.FC<MoleculeNamedInputProps> = ({
   return (
     <StyleMoleculeNamedInputContainer>
       <AtomLabel text={text} color="secondary" />
-
       <AtomSeparator size="sm" />
 
       <AtomInput

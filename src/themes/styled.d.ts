@@ -17,10 +17,12 @@ declare module 'styled-components' {
       };
     };
     spacing: {
+      xsm: string;
       sm: string;
       md: string;
       lg: string;
       xlg: string;
+      'xlg-2': string;
     };
     border: {
       size: {

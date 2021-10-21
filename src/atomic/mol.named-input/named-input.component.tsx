@@ -11,6 +11,7 @@ interface MoleculeNamedInputProps {
   value: string;
   onInputChange(value: string): void;
   secureTextEntry?: boolean;
+  placeholder?: string;
 }
 
 export const MoleculeNamedInput: React.FC<MoleculeNamedInputProps> = ({
@@ -18,6 +19,7 @@ export const MoleculeNamedInput: React.FC<MoleculeNamedInputProps> = ({
   value,
   onInputChange,
   secureTextEntry,
+  placeholder,
 }) => {
   return (
     <StyleMoleculeNamedInputContainer>
@@ -25,7 +27,12 @@ export const MoleculeNamedInput: React.FC<MoleculeNamedInputProps> = ({
 
       <AtomSeparator size="sm" />
 
-      <AtomInput value={value} onInputChange={onInputChange} secureTextEntry={secureTextEntry} />
+      <AtomInput
+        placeholder={placeholder}
+        value={value}
+        onInputChange={onInputChange}
+        secureTextEntry={secureTextEntry}
+      />
     </StyleMoleculeNamedInputContainer>
   );
 };

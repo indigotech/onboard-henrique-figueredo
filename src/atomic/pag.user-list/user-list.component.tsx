@@ -3,6 +3,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 
 import { AtomLabel } from '../atm.label/label.component';
+import { PlusFab } from '../atm.plus-fab/plus-fab.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 import { AtomTitle } from '../atm.title/title.component';
 import { MoleculeButton } from '../mol.button/button.component';
@@ -40,6 +41,7 @@ export const PageUserList: React.FC<PageUserListProps> = ({ users, message, next
         <MoleculeButton title="Next Page" color="primary" onPress={nextPage} />
         <AtomSeparator size="xlg" />
       </ScrollView>
+      <PlusFab />
     </StylePageUserListContainer>
   );
 };

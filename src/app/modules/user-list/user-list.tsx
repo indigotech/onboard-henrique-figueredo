@@ -14,7 +14,7 @@ interface PaginateVariable {
   };
 }
 
-type MinUser = Pick<User, 'name' | 'email' | 'id'>[];
+type MinUser = Pick<User, 'name' | 'email' | 'id'>;
 
 interface UsersData {
   users: {

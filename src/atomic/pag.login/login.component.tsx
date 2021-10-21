@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { AtomCaption } from '../atm.caption/caption.component';
 import { AtomLabel } from '../atm.label/label.component';
 import { AtomSeparator } from '../atm.separator/separator.component';
 import { AtomTitle } from '../atm.title/title.component';
@@ -30,8 +31,7 @@ export const PageLogin: React.FC<PageLoginProps> = ({
       <AtomSeparator size={'xlg'} />
       <AtomTitle title="Bem vindo(a) à Taqtitle!" />
 
-      <AtomLabel text={message.text} color={message.error ? 'error' : 'callToAction'} />
-      <AtomSeparator size={'xlg'} />
+      <AtomCaption text={message.text} color={message.error ? 'error' : 'callToAction'} />
 
       <MoleculeNamedInput text="Email" value={email} onInputChange={changeEmailValue} />
       <AtomSeparator size={'xlg'} />

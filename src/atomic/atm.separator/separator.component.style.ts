@@ -7,6 +7,9 @@ interface ContainerProps {
 }
 
 const sizes = {
+  xsm: css`
+    ${props => props.theme.spacing.xsm}
+  `,
   sm: css`
     ${props => props.theme.spacing.sm}
   `,

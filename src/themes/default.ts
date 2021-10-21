@@ -4,9 +4,9 @@ export const light: DefaultTheme = {
   title: 'default',
   font: {
     size: {
-      h1: '32px',
-      h2: '24px',
-      h5: '13.28px',
+      h1: '24px',
+      h2: '16px',
+      h5: '12px',
     },
     colors: {
       primary: '#c1c1c1',
@@ -16,10 +16,12 @@ export const light: DefaultTheme = {
     },
   },
   spacing: {
-    sm: '6px',
+    xsm: '6px',
+    sm: '8px',
     md: '12px',
-    lg: '24px',
+    lg: '20px',
     xlg: '32px',
+    'xlg-2': '44px',
   },
   border: {
     size: { sm: '12px' },

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 
 type Color = 'primary' | 'secondary' | 'callToAction' | 'error';
 
-interface StyleTextProps {
+interface StyleCaptionProps {
   color: Color;
 }
 
@@ -21,8 +21,8 @@ const colors = {
   `,
 };
 
-export const StyleText = styled.Text<StyleTextProps>`
+export const StyleCaption = styled.Text<StyleCaptionProps>`
   color: ${props => colors[props.color]};
   font-size: ${props => props.theme.font.size.h5};
-  margin-top: ${props => props.theme.spacing.md};
+  margin-top: ${props => props.theme.spacing.xsm};
 `;
